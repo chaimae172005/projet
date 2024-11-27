@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Conférences</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400&display=swap" rel="stylesheet">
+  <style>
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 225px;
+  height: 100vh; /* Full height of the viewport */
+  background-color: #333333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed; /* Fixed position */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  overflow-y: auto; /* Add scrolling if the content overflows */
+}
+
+.sidebar h2 {
+  font-family: 'Playfair Display', serif;
+  color: beige;
+  margin-bottom: 40px;
+}
+
+.sidebar a {
+  color: beige;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 15px;
+  transition: color 0.3s, padding-left 0.3s;
+}
+
+.sidebar a:hover {
+  color: white;
+  padding-left: 10px;
+}
+
+/* Main Content */
+.content {
+  width: calc(100% - 250px); /* Adjusted width to avoid overlap with the sidebar */
+  margin-left: 250px; /* Add margin to the left to align with the sidebar */
+  padding: 40px;
+  background-color: #000000;
+  color: white;
+}
+
+.content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: beige;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #222222;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.section h2 {
+  font-size: 2rem;
+  color: beige;
+
+
+}
+
+.individual {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #444444;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.individual img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+/* Hidden Checkbox (for showing description) */
+.individual input {
+  display: none;
+}
+
+.individual input:checked + img + div p {
+  opacity: 1;
+  max-height: 100px;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+.individual p {
+  color: #ccc;
+  margin: 5px 0 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.individual input:checked + img + div p {
+  opacity: 1;
+  max-height: none;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+/* Gallery Styles */
+.gallery-toggle {
+  display: none;
+}
+
+.gallery-label {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 10px;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.gallery-label:hover {
+  background-color: #555;
+}
+
+.gallery-toggle:checked ~ .gallery {
+  display: flex;
+}
+
+.gallery {
+  display: none; /* Hidden by default */
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 270px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* General hover effect for all images */
+img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Les Conférences</h2>
+    <a href="#Influenceur-section">Influenceur</a>
+    <a href="#actor-section">Acteur</a>
+    <a href="#realisateur-section">Realisateur</a>
+    <a href="#musicien-section">Musicien</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>Les Conférences</h1>
+
+    <!-- Influenceur Section -->
+    <div class="section" id="Influenceur-section">
+      <h2>Influenceur</h2>
+	  <p style="font-size: 1rem; color: #ccc; margin-bottom: 15px; text-align: center;">
+    Click on the images below to see the description.
+  </p>
+      <div class="individual">
+        <input type="checkbox" id="hilal-toggle">
+        <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-23 204510.png" alt="Hilal Zoubir" onclick="document.getElementById('hilal-toggle').checked = !document.getElementById('hilal-toggle').checked;">
+        <div>
+          <h3>Hilal Zoubir</h3>
+           <p><span style ="color:beige;">Partager son expérience créatif et ses collaborations.<br></span>Star marocain d'Instagram, célèbre pour son contenu comique, sa vie quotidienne et ses voyages. Il a documenté ses voyages en Turquie, en Thaïlande et au Congo. Il a joué dans les films *Lu'bat El Khiyana* et *Dar lhna*. En mars 2022, il a publié une série de photos de lui-même en train de jouer avec des éléphants vivants.</p>
+        </div>
+      </div>
+      <div class="individual">
+        <input type="checkbox" id="Reda-toggle">
+        <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-26 145544.png" alt="Reda El Wahabi" onclick="document.getElementById('Reda-toggle').checked = !document.getElementById('Reda-toggle').checked;">
+        <div>
+          <h3>Reda El Wahabi</h3>
+          <p><span style ="color:beige;">Partager son expérience créatif et ses collaborations.<br></span>
+         "Reda El Wahabi est un influenceur qui crée un contenu varié allant des voyages et du style de vie à des interviews exclusives.<br> Avec des publications
+		 comme 'YALLA IS HERE'et 'Everytime Everywhere,' il met en avant ses aventures et expériences.<br> Reda collabore également avec des marques telles que NESCAFÉ
+		 et partage des aperçus de sa vie personnelle et de ses convictions. Son contenu est captivant, authentique et reflète l'essence de différentes cultures et
+		 destinations."
+         </p>
+        </div>
+      </div>
+	  <div class="individual">
+        <input type="checkbox" id="Amine-toggle">
+        <img src="C:\Users\hp\Downloads\amine raghib.jpeg" alt="Amine raghib" onclick="document.getElementById('Amine-toggle').checked = !document.getElementById('Amine-toggle').checked;">
+        <div>
+          <h3>Amine Raghib</h3>
+          <p><span style ="color:beige;"> Bien que plus axé sur le
+numérique, Amine pourrait offrir une perspective intéressante sur l'art du
+contenu et l'influence.<br></span>
+"Amine Raghib (né le 2 avril 1986 à Marrakech , Maroc ) est blogueur et fondateur du blog Al-Mohtarif. Il est également célèbre pour les épisodes qu'il présente sur une chaîne YouTube du même nom.  , En 2014, il a été honoré par YouTube pour le podcasteur marocain le plus influent, et en 2015, il a reçu le prix des pionniers des médias sociaux des mains du souverain de Dubaï, Mohammed bin Rashid Al Maktoum. "
+
+
+</p>
+        </div>
+      </div>
+	   <div class="individual">
+        <input type="checkbox" id="Adil-toggle">
+        <img src="C:\Users\hp\Downloads\adil taouil.jpg" alt="Adil taouil" onclick="document.getElementById('Adil-toggle').checked = !document.getElementById('Adil-toggle').checked;">
+        <div>
+          <h3>Adil Taouil</h3>
+          <p><span style ="color:beige;"> Partager son expérience créatif et ses
+collaborations.<br></span>
+"Créateur de contenu sur YouTube qui a utilisé la plateforme pour publier une variété de types de vidéos pour ses plus de 1,9 million d'abonnés. Il s'agit notamment des vidéos de divertissement d'Ashtar TV, du programme éducatif Kivash et même du contenu d'horreur."
+        </div>
+      </div>
+      <input type="checkbox" id="gallery-influencer-toggle" class="gallery-toggle">
+      <label for="gallery-influencer-toggle" class="gallery-label">Show Gallery</label>
+      <div class="gallery" id="gallery-influencer">
+        <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-20 010543.png" alt="Influencer Gallery 1">
+        <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-26 233200.png" alt="Influencer Gallery 2">
+        <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-23 204657.png" alt="Influencer Gallery 3">
+		<img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-23 204710.png" alt="Influencer Gallery 5">
+		<img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-23 204727.png" alt="Influencer Gallery 6">
+		<img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-23 205430.png" alt="Influencer Gallery 7">
+		<img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-23 205602.png" alt="Influencer Gallery 8">
+		<img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-23 204510.png" alt="Influencer Gallery 9">
+      </div>
+    </div>
+
+    <!-- Actor Section -->
+    <div class="section" id="actor-section">
+      <h2>Acteur</h2>
+	  <p style="font-size: 1rem; color: #ccc; margin-bottom: 15px; text-align: center;">
+    Click on the images below to see the description.
+  </p>
+      <div class="individual">
+        <input type="checkbox" id="Rafik-toggle">
+        <img src="C:\Users\hp\Downloads\boubker.jpg" alt="Rafik Boubker" onclick="document.getElementById('Rafik-toggle').checked = !document.getElementById('Rafik-toggle').checked;">
+        <div>
+          <h3>Rafik Boubker</h3>
+          <p><b><span style="color:beige;">Une interview autour de ses projets
+          cinématographiques et de son engagement artistique.</span></b><br>Rafiq Boubaker (né le 12 mars 1973) est un acteur marocain . Il a joué dans certains des films à succès du cinéma marocain tels que « Road to Kabul », « Shaitan's Angels », « Safar » et « Class 8 »
+
+        </p>
+        </div>
+      </div>
+      <div class="individual">
+        <input type="checkbox" id="Aziz-toggle">
+        <img src="C:\Users\hp\Downloads\aziz dadas.jpeg" alt="Aziz Dadas" onclick="document.getElementById('Aziz-toggle').checked = !document.getElementById('Aziz-toggle').checked;">
+        <div>
+          <h3 style="color=beige;">Aziz Dadas</h3>
+          <p><b><span style="color:beige;">Une interview autour de ses projets
+          cinématographiques et de son engagement artistique.</span></b><br>
+		  Aziz Dadas (né le 16 mai 1968 à Casablanca ) est un acteur marocain.
+		  <br> Il est connu pour avoir joué aux côtés du comédien Saïd Naciri , 
+		  travaillant avec lui dans un certain nombre d'actes tels que
+		  Le Rebbe , Al-Aouni , Playing with Wolves , The Hook , et pour son apparition dans la série marocaine à
+		  succès Hour in Hell diffusée sur la chaîne Al Aoula .
+		  <br> Cependant, lorsqu'il a participé au film comique marocain The Way to Kabul ,
+		  <br>  il a été diffusé. Il est également apparu dans la série Hdidan à Gueliz en 2017.</p>
+        </div>
+      </div>
+	        <div class="individual">
+        <input type="checkbox" id="Sarah-toggle">
+        <img src="C:\Users\hp\Downloads\sarah perles.jpg" alt="Sarah Perles" onclick="document.getElementById('Sarah-toggle').checked = !document.getElementById('Sarah-toggle').checked;">
+        <div>
+          <h3>Sarah Perles</h3>
+          <p><b><span style="color:beige;">Une interview autour de ses projets
+          cinématographiques et de son engagement artistique.</span></b><br>Sarah Perles est une actrice maroco-portugaise. Elle est révélée notamment par son interprétation<br>
+		  d'un des rôles principaux dans Sofia de Meryem Benm'Barek
+		  , film primé en section Un certain regard au<br> Festival de Cannes 2018.</p>
+        </div>
+      </div>
+	  <div class="individual">
+        <input type="checkbox" id="Majdouline-toggle">
+        <img src="C:\Users\hp\Downloads\majdouline.jpg" alt="Majdouline Idrissi" onclick="document.getElementById('Majdouline-toggle').checked = !document.getElementById('Majdouline-toggle').checked;">
+        <div>
+          <h3>Majdouline Idrissi</h3>
+          <p><b><span style="color:beige;">Une interview autour de ses projets
+cinématographiques et de son engagement artistique.</span></b><br>
+Majdouline Idrissi naît à Rabat et grandit à Montréal. Elle est surtout connue grâce à son rôle dans le film El Bandia,<br>
+ qui a remporté un certain succès auprès du jeune public.
+        </div>
+      </div>
+	  <div class="individual">
+        <input type="checkbox" id="Ayoub-toggle">
+        <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-26 200305.png" alt="Ayoub Abounasser" onclick="document.getElementById('Ayoub-toggle').checked = !document.getElementById('Ayoub-toggle').checked;">
+        <div>
+          <h3>Ayoub Abounasser</h3>
+          <p><b><span style="color:beige;">Une interview autour de ses projets
+cinématographiques et de son engagement artistique.</span></b><br>Il est un acteur marocain.<br> Il est diplômé de l'Institut Supérieur d'Art Dramatique et d'Animation<br> Culturelle. Il est apparu dans de nombreuses
+ productions télévisées et cinématographiques,<br> notamment avec le réalisateur Hicham Lasri. <br>Il est connu pour L'Maktoub (2022), Lotfi Nhila (2022) et Hayna (2020).
+</p>
+        </div>
+      </div>
+      <input type="checkbox" id="gallery-actor-toggle" class="gallery-toggle">
+      <label for="gallery-actor-toggle" class="gallery-label">Show Gallery</label>
+      <div class="gallery" id="gallery-actor">
+	  <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-23 201849.png" alt="Actor Gallery 3">
+        <img src="C:\Users\hp\Downloads\aziz dadas artist.jpeg" alt="Actor Gallery 1">
+        <video width="550" height="270" controls>
+        <source src="C:\Users\hp\Downloads\WhatsApp Video 2024-11-27 at 01.01.49.mp4" type="video/mp4">
+        <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-23 201849.png" alt="Actor Gallery 3">
+      </div>
+    </div>
+
+    <!-- Realisateur Section -->
+    <div class="section" id="realisateur-section">
+      <h2>Realisateur</h2>
+	  <p style="font-size: 1rem; color: #ccc; margin-bottom: 15px; text-align: center;">
+    Click on the images below to see the description.
+  </p>
+      <div class="individual">
+        <input type="checkbox" id="Said-toggle">
+        <img src="C:\Users\hp\Downloads\said khallaf.jpeg" alt="Said Khallaf" onclick="document.getElementById('Said-toggle').checked = !document.getElementById('Said-toggle').checked;">
+        <div>
+          <h3>Said khallaf</h3>
+          <p><b><span style="color:beige;">Une interview autour de ses projets
+          cinématographiques et de son engagement artistique.</span></b><br>ingénieur développeur de software à la basse, après la mort de ses deux garçons radicalise dans les bas quartiers casablancais. Il décide de ce convertir en cinéaste en suivant des multiple cursus de formation aux arts de la cinématographie.
+
+En 2005, il est diplôme de WHMIS and Film Orientation, BC Institute of film Professionals. De 2004 en 2005, la Digital Video Production, Film School, Vancouver, (Canada) puis 2010 Bachelor in Film Studies, University, Vancouver (Canada)1.</p>
+        </div>
+      </div>
+      <div class="individual">
+        <input type="checkbox" id="Sara-toggle">
+        <img src="C:\Users\hp\Downloads\sarah.jpeg" alt="Michael Green" onclick="document.getElementById('Sara-toggle').checked = !document.getElementById('Sara-toggle').checked;">
+        <div>
+          <h3>Sarah perles</h3>
+        <p><b><span style="color:beige;">Une interview autour de ses projets
+          cinématographiques et de son engagement artistique.</span></b><br>Sarah Perles est une actrice maroco-portugaise. Elle est révélée notamment par son interprétation<br>
+		  d'un des rôles principaux dans Sofia de Meryem Benm'Barek
+		  , film primé en section Un certain regard au<br> Festival de Cannes 2018.</p>
+        </div>
+      </div>
+      <input type="checkbox" id="gallery-director-toggle" class="gallery-toggle">
+      <label for="gallery-director-toggle" class="gallery-label">Show Gallery</label>
+      <div class="gallery" id="gallery-director">
+        <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-23 202311.png" alt="Director Gallery 1">
+        <img src="C:\Users\hp\Downloads\WhatsApp Image 2024-11-24 at 00.06.05.jpeg" alt="Director Gallery 2">
+        <video width="550" height="270" controls>
+        <source src="C:\Users\hp\Downloads\WhatsApp Video 2024-11-27 at 01.23.01.mp4" type="video/mp4">
+      </div>
+    </div>
+
+    <!-- Musician Section -->
+	  <div class="section" id="musicien-section">
+      <h2>Musicien</h2>
+	  <p style="font-size: 1rem; color: #ccc; margin-bottom: 15px; text-align: center;">
+    Click on the images below to see the description.
+  </p>
+      <div class="individual">
+        <input type="checkbox" id="Fehd-toggle-musician">
+        <img src="C:\Users\hp\Downloads\fehd benchemsi.jpg" alt="Fehd benchemsi" onclick="document.getElementById('Fehd-toggle-musician').checked = !document.getElementById('Fehd-toggle-musician').checked;">
+        <div>
+          <h3>Fehd benchemsi</h3>
+          <p><b><span style="color:beige;">Partager son expérience créatif et ses
+collaborations.</span></b><br>Fehd Benchemsi est un acteur marocain qui a travaillé dans la série acclamée de Hulu The Looming Tower (2018) aux côtés des stars internationales du cinéma Jeff Daniels et Tahar Rahim. En 2017, il est apparu dans Yellow Birds (du réalisateur Alexander Moors), aux côtés de la star de Boardwalk Empire Jack Huston. Benchemsi a joué et est apparu avec Bradley Cooper dans le blockbuster acclamé de Clint Eastwood American Sniper (2015), ainsi qu'avec la lauréate d'un Oscar Nicole Kidman dans Queen Of The Desert (Werner Herzog, 2015).
+
+        </div>
+      </div>
+	 <div class="spotify-link">
+    <h3>Listen to Fehd Benchemsi on Spotify</h3>
+    <a href="https://open.spotify.com/artist/1Z4qZRTqdRiefiqgbNg2ky?si=50LfNBPBTkmkISv-4n2BdA" target="_blank" style="color: #1DB954; text-decoration: none; font-weight: bold;">Click here to listen on Spotify</a>
+  </div>
+      <input type="checkbox" id="gallery-musicien-toggle" class="gallery-toggle">
+      <label for="gallery-musicien-toggle" class="gallery-label">Show Gallery</label>
+      <div class="gallery" id="gallery-musicien">
+        <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-27 012954.png" alt="musicien Gallery 1">
+        <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-27 013414.png" alt="musicien Gallery 2">
+        <img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-27 013614.png" alt="musicien Gallery 3">
+		<img src="C:\Users\hp\OneDrive\Pictures\Screenshots\Screenshot 2024-11-27 013100.png" alt="musicien Gallery 4">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
